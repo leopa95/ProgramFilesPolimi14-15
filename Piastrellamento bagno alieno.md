@@ -1,12 +1,12 @@
-def piastrequadrate(b,h,i,c):                            # Legenda:
-    if b==h:                                             # b= base rettangolo alieno
-        return i+1,c+1                                   # h= altezza bagno alieno ---> " più un muro che un pavimento " 
-    if b>h:                                              # i= contatore che aumenta ad ogni richiamo della funzione piastrellequadrate(....)
-        return piastrequadrate(b-h,h,i+1,c+h)            # c= contatore che conta il costo totale e minore delle piastrelle
-    else:
-        return piastrequadrate(b,h-b,i+1,c+b)
-def piastrellamento(b,h):
-    return piastrequadrate(b,h,0,0)
+    def piastrequadrate(b,h,i,c):
+        if b==h:
+            return i+1,c+1
+        if b>h:
+            return piastrequadrate(b-h,h,i+1,c+h)
+        else:
+            return piastrequadrate(b,h-b,i+1,c+b)
+    def piastrellamento(b,h):
+        return piastrequadrate(b,h,0,0)
     
     
 Il piastrellamento può essere fatto solo con piastrelle quadrate e ho notato che le piastrelle costano di meno quando
