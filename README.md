@@ -6,4 +6,4 @@ Su questa repository posterò le consegne dateci dal professore Bruschi sperando
 
 In bocca al lupo a tutti e spero che questa repository vi sia di aiuto!
 
-Leonardo Panerai
+Leonardo
