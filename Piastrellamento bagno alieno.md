@@ -1,27 +1,24 @@
-    def piastrequadrate(b,h,i,c):
+    def latomattonelle(b,h,i):
         if b==h:
-            return i+1,c+1
+            return b,i+1
         if b>h:
-            return piastrequadrate(b-h,h,i+1,c+h)
+            return latomattonelle(b-h,h,i+1)
         else:
-            return piastrequadrate(b,h-b,i+1,c+b)
+            return latomattonelle(b,h-b,i+1)
     def piastrellamento(b,h):
-        return piastrequadrate(b,h,0,0)
+        return latomattonelle(b,h,0)
     
     
-Il piastrellamento può essere fatto solo con piastrelle quadrate e ho notato che le piastrelle costano di meno quando
-sono più grandi. 
+Il piastrellamento può essere fatto solo con piastrelle quadrate e ho notato che sottraendo il numero che era minore (ricorsivamente) all'altro maggiore alla fine veniva il massimo comun divisore e l'ho implementato in queste righe di codice. 
 
-Cercherò quindi di piastrellarlo con piastrelle più grandi possibili ( ovviamente quadrate).
+Cercherò quindi di piastrellarlo con piastrelle più grandi possibili (ovviamente quadrate).
 
-La funzione piastrequadrate(..) serve appunto per prendere l'altezza e la base e fare la prima piastrella più grande possibile.
+La funzione latomattonelle(..) serve appunto per prendere l'altezza e la base e fare le piastrelle il più grande possibile.
 
-Es: se hai un pavimento (muro) di h=8 e b=5 piastrequadrate(b,h,0,0) (i due zeri sono dei contatori che si vanno sommando quindi
-devono iniziare da 0) creerà la piastrella iniziale di grandezze 5x5 poi 3x3 , 2x2 , 1x1 e infine l'ultima 1x1.
+Es: se hai un pavimento (muro) di h=8 e b=5 latomattonelle(b,h,0) (lo zero é un contatore che si va sommando ad 1 (numero passaggi) quindi devono iniziare da 0) creerà arriverà alla soluzione che il massimo comun divisore tra 8 e 5 è 1 e ci dirà inoltre quante volte è passato dentro la funzione latomattonelle(che appunto ci indica la grandezza delle mattonelle).
 
-La funzione piastrequadrate inoltre avendo i due contatori "i" e "c" conta anche i passi con "i" e il costo (che equivale al lato
-del quadrato della piastrella) del piastrellamento.
+La funzione piastrequadrate inoltre ha un contatore "i" che conta le volte che il programma richiama latomattonelle(..).
 
-L'output del programma indicherà ( numero di passi fatti ricorsivamente, costo totale del piastrellamento ) la virgola sul return della terza riga tra "i+1" e "c+1" serve per fare stampare i due valori nello stesso return (+1 perchè non piastrequadrate non conta l'ultimo passaggio/ultima piastrella da 1x1 -> stessa cosa per c+1 non viene contato il costo dell'ultima piastrella {1} .
+L'output del programma indicherà ( massimo comun divisore/ lato delle mattonelle ,numero di passi fatti ricorsivamente nella funzione) la virgola sul return della terza riga tra "b" e "i+1" serve per fare stampare i due valori nello stesso return.
 
 Spero di esservi stato utile!
